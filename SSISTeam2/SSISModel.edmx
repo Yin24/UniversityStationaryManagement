@@ -1,0 +1,1881 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SSISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adjustment_Details">
+          <Key>
+            <PropertyRef Name="voucher_detail_id" />
+          </Key>
+          <Property Name="voucher_detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="quantity_adjusted" Type="int" Nullable="false" />
+          <Property Name="reason" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="voucher_id" Type="int" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Alerts">
+          <Key>
+            <PropertyRef Name="alert_id" />
+          </Key>
+          <Property Name="alert_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="reason" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="handled" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Approval_Duties">
+          <Key>
+            <PropertyRef Name="duty_id" />
+          </Key>
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="dept_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="duty_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="reason" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collection_Point">
+          <Key>
+            <PropertyRef Name="collection_pt_id" />
+          </Key>
+          <Property Name="collection_pt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="location" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date_time" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="day_of_week" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Delivery_Details">
+          <Key>
+            <PropertyRef Name="delivery_details_id" />
+          </Key>
+          <Property Name="delivery_details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="delivery_id" Type="int" Nullable="false" />
+          <Property Name="tender_id" Type="int" Nullable="false" />
+          <Property Name="remarks" Type="nvarchar(max)" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Delivery_Orders">
+          <Key>
+            <PropertyRef Name="delivery_id" />
+          </Key>
+          <Property Name="delivery_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clerk_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="receive_date" Type="datetime" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="dept_code" />
+          </Key>
+          <Property Name="dept_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="rep_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="contact_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="contact_num" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fax_num" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="head_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="collection_point" Type="int" Nullable="false" />
+          <Property Name="logo_path" Type="nvarchar(max)" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dept_Registry">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="dept_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="200" />
+          <Property Name="mobile_no" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Favourites">
+          <Key>
+            <PropertyRef Name="favourite_id" />
+          </Key>
+          <Property Name="favourite_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventory_Adjustment">
+          <Key>
+            <PropertyRef Name="voucher_id" />
+          </Key>
+          <Property Name="voucher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clerk_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="status_date" Type="datetime" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monthly_Check_Records">
+          <Key>
+            <PropertyRef Name="check_id" />
+          </Key>
+          <Property Name="check_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date_checked" Type="datetime" Nullable="false" />
+          <Property Name="clerk_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="discrepancy" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase_Order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clerk_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="order_date" Type="datetime" Nullable="false" />
+          <Property Name="delivery_by" Type="datetime" Nullable="false" />
+          <Property Name="deliver_address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="supplier_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase_Order_Details">
+          <Key>
+            <PropertyRef Name="order_details_id" />
+          </Key>
+          <Property Name="order_details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tender_id" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="cancelled" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request_Details">
+          <Key>
+            <PropertyRef Name="request_detail_id" />
+          </Key>
+          <Property Name="request_detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="request_id" Type="int" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="orig_quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Request_Event">
+          <Key>
+            <PropertyRef Name="request_event_id" />
+          </Key>
+          <Property Name="request_event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="request_detail_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="date_time" Type="datetime" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="allocated" Type="int" />
+          <Property Name="not_allocated" Type="int" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="request_id" />
+          </Key>
+          <Property Name="request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="dept_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="reason" Type="nvarchar(max)" />
+          <Property Name="current_status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="rejected" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="rejected_reason" Type="nvarchar(max)" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Stock_Inventory">
+          <Key>
+            <PropertyRef Name="item_code" />
+          </Key>
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="current_qty" Type="int" Nullable="false" />
+          <Property Name="reorder_qty" Type="int" Nullable="false" />
+          <Property Name="reorder_level" Type="int" Nullable="false" />
+          <Property Name="supplier_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="unit_of_measure" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="item_description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="image_path" Type="nvarchar(max)" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="cat_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="supplier_id" />
+          </Key>
+          <Property Name="supplier_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contact_name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contact_num" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fax_num" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="gst_reg_num" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="logo_path" Type="nvarchar(max)" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tender_List">
+          <Key>
+            <PropertyRef Name="tender_year_id" />
+          </Key>
+          <Property Name="tender_year_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="supplier_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="tender_date" Type="datetime" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tender_List_Details">
+          <Key>
+            <PropertyRef Name="tender_id" />
+          </Key>
+          <Property Name="tender_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="rank" Type="int" Nullable="false" />
+          <Property Name="tender_year_id" Type="int" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="deleted" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SSIS.dbo.Crystal_Views' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Crystal_Views">
+          <Key>
+            <PropertyRef Name="quantity" />
+            <PropertyRef Name="current_status" />
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="item_description" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="date_time" />
+            <PropertyRef Name="cat_name" />
+          </Key>
+          <Property Name="orig_quantity" Type="int" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="current_status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="item_code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="item_description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="date_time" Type="datetime" Nullable="false" />
+          <Property Name="cat_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Adjustment_Details_Inventory_Adjustment">
+          <End Role="Inventory_Adjustment" Type="Self.Inventory_Adjustment" Multiplicity="1" />
+          <End Role="Adjustment_Details" Type="Self.Adjustment_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Adjustment">
+              <PropertyRef Name="voucher_id" />
+            </Principal>
+            <Dependent Role="Adjustment_Details">
+              <PropertyRef Name="voucher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adjustment_Details_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Adjustment_Details" Type="Self.Adjustment_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Adjustment_Details">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alerts_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Alerts" Type="Self.Alerts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Alerts">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Approval_Duties_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Approval_Duties" Type="Self.Approval_Duties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="dept_code" />
+            </Principal>
+            <Dependent Role="Approval_Duties">
+              <PropertyRef Name="dept_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Approval_Duties_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Approval_Duties" Type="Self.Approval_Duties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Approval_Duties">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collection_Point_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Collection_Point" Type="Self.Collection_Point" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Collection_Point">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Details_Delivery_Orders">
+          <End Role="Delivery_Orders" Type="Self.Delivery_Orders" Multiplicity="1" />
+          <End Role="Delivery_Details" Type="Self.Delivery_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivery_Orders">
+              <PropertyRef Name="delivery_id" />
+            </Principal>
+            <Dependent Role="Delivery_Details">
+              <PropertyRef Name="delivery_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Details_Tender_List_Details">
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="1" />
+          <End Role="Delivery_Details" Type="Self.Delivery_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tender_List_Details">
+              <PropertyRef Name="tender_id" />
+            </Principal>
+            <Dependent Role="Delivery_Details">
+              <PropertyRef Name="tender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Orders_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Delivery_Orders" Type="Self.Delivery_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Delivery_Orders">
+              <PropertyRef Name="clerk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Orders_Purchase_Order">
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+          <End Role="Delivery_Orders" Type="Self.Delivery_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase_Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="Delivery_Orders">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Collection_Point">
+          <End Role="Collection_Point" Type="Self.Collection_Point" Multiplicity="1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collection_Point">
+              <PropertyRef Name="collection_pt_id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="collection_point" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favourites_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Favourites" Type="Self.Favourites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Favourites">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favourites_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Favourites" Type="Self.Favourites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Favourites">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Monthly_Check_Records_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Monthly_Check_Records" Type="Self.Monthly_Check_Records" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Monthly_Check_Records">
+              <PropertyRef Name="clerk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="clerk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Details_Purchase_Order">
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+          <End Role="Purchase_Order_Details" Type="Self.Purchase_Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase_Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="Purchase_Order_Details">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Details_Tender_List_Details">
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="1" />
+          <End Role="Purchase_Order_Details" Type="Self.Purchase_Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tender_List_Details">
+              <PropertyRef Name="tender_id" />
+            </Principal>
+            <Dependent Role="Purchase_Order_Details">
+              <PropertyRef Name="tender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Details_Requests">
+          <End Role="Requests" Type="Self.Requests" Multiplicity="1" />
+          <End Role="Request_Details" Type="Self.Request_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requests">
+              <PropertyRef Name="request_id" />
+            </Principal>
+            <Dependent Role="Request_Details">
+              <PropertyRef Name="request_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Details_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Request_Details" Type="Self.Request_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Request_Details">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Event_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Request_Event" Type="Self.Request_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Request_Event">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Event_Request_Details">
+          <End Role="Request_Details" Type="Self.Request_Details" Multiplicity="1" />
+          <End Role="Request_Event" Type="Self.Request_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request_Details">
+              <PropertyRef Name="request_detail_id" />
+            </Principal>
+            <Dependent Role="Request_Event">
+              <PropertyRef Name="request_detail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="dept_code" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="dept_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Inventory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="Stock_Inventory">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Inventory_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="Stock_Inventory">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tender_List_Details_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Tender_List_Details">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tender_List_Details_Tender_List">
+          <End Role="Tender_List" Type="Self.Tender_List" Multiplicity="1" />
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tender_List">
+              <PropertyRef Name="tender_year_id" />
+            </Principal>
+            <Dependent Role="Tender_List_Details">
+              <PropertyRef Name="tender_year_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tender_List_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Tender_List" Type="Self.Tender_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="Tender_List">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SSISModelStoreContainer">
+          <EntitySet Name="Adjustment_Details" EntityType="Self.Adjustment_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alerts" EntityType="Self.Alerts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Approval_Duties" EntityType="Self.Approval_Duties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collection_Point" EntityType="Self.Collection_Point" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delivery_Details" EntityType="Self.Delivery_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delivery_Orders" EntityType="Self.Delivery_Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dept_Registry" EntityType="Self.Dept_Registry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favourites" EntityType="Self.Favourites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Adjustment" EntityType="Self.Inventory_Adjustment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monthly_Check_Records" EntityType="Self.Monthly_Check_Records" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Order" EntityType="Self.Purchase_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Order_Details" EntityType="Self.Purchase_Order_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request_Details" EntityType="Self.Request_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request_Event" EntityType="Self.Request_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock_Inventory" EntityType="Self.Stock_Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tender_List" EntityType="Self.Tender_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tender_List_Details" EntityType="Self.Tender_List_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Crystal_Views" EntityType="Self.Crystal_Views" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Crystal_Views].[orig_quantity] AS [orig_quantity], 
+    [Crystal_Views].[quantity] AS [quantity], 
+    [Crystal_Views].[current_status] AS [current_status], 
+    [Crystal_Views].[item_code] AS [item_code], 
+    [Crystal_Views].[item_description] AS [item_description], 
+    [Crystal_Views].[name] AS [name], 
+    [Crystal_Views].[date_time] AS [date_time], 
+    [Crystal_Views].[cat_name] AS [cat_name]
+    FROM [dbo].[Crystal_Views] AS [Crystal_Views]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Adjustment_Details_Inventory_Adjustment" Association="Self.FK_Adjustment_Details_Inventory_Adjustment">
+            <End Role="Inventory_Adjustment" EntitySet="Inventory_Adjustment" />
+            <End Role="Adjustment_Details" EntitySet="Adjustment_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adjustment_Details_Stock_Inventory" Association="Self.FK_Adjustment_Details_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Adjustment_Details" EntitySet="Adjustment_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alerts_Stock_Inventory" Association="Self.FK_Alerts_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Alerts" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Approval_Duties_Department" Association="Self.FK_Approval_Duties_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Approval_Duties" EntitySet="Approval_Duties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Approval_Duties_Dept_Registry" Association="Self.FK_Approval_Duties_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Approval_Duties" EntitySet="Approval_Duties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collection_Point_Dept_Registry" Association="Self.FK_Collection_Point_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Collection_Point" EntitySet="Collection_Point" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Details_Delivery_Orders" Association="Self.FK_Delivery_Details_Delivery_Orders">
+            <End Role="Delivery_Orders" EntitySet="Delivery_Orders" />
+            <End Role="Delivery_Details" EntitySet="Delivery_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Details_Tender_List_Details" Association="Self.FK_Delivery_Details_Tender_List_Details">
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+            <End Role="Delivery_Details" EntitySet="Delivery_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Orders_Dept_Registry" Association="Self.FK_Delivery_Orders_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Delivery_Orders" EntitySet="Delivery_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Orders_Purchase_Order" Association="Self.FK_Delivery_Orders_Purchase_Order">
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+            <End Role="Delivery_Orders" EntitySet="Delivery_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Collection_Point" Association="Self.FK_Department_Collection_Point">
+            <End Role="Collection_Point" EntitySet="Collection_Point" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favourites_Dept_Registry" Association="Self.FK_Favourites_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favourites_Stock_Inventory" Association="Self.FK_Favourites_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Monthly_Check_Records_Dept_Registry" Association="Self.FK_Monthly_Check_Records_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Monthly_Check_Records" EntitySet="Monthly_Check_Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Dept_Registry" Association="Self.FK_Purchase_Order_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Details_Purchase_Order" Association="Self.FK_Purchase_Order_Details_Purchase_Order">
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+            <End Role="Purchase_Order_Details" EntitySet="Purchase_Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Details_Tender_List_Details" Association="Self.FK_Purchase_Order_Details_Tender_List_Details">
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+            <End Role="Purchase_Order_Details" EntitySet="Purchase_Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Supplier" Association="Self.FK_Purchase_Order_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Details_Requests" Association="Self.FK_Request_Details_Requests">
+            <End Role="Requests" EntitySet="Requests" />
+            <End Role="Request_Details" EntitySet="Request_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Details_Stock_Inventory" Association="Self.FK_Request_Details_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Request_Details" EntitySet="Request_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Event_Dept_Registry" Association="Self.FK_Request_Event_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Request_Event" EntitySet="Request_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Event_Request_Details" Association="Self.FK_Request_Event_Request_Details">
+            <End Role="Request_Details" EntitySet="Request_Details" />
+            <End Role="Request_Event" EntitySet="Request_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Department" Association="Self.FK_Requests_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Dept_Registry" Association="Self.FK_Requests_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Inventory_Category" Association="Self.FK_Stock_Inventory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Inventory_Supplier" Association="Self.FK_Stock_Inventory_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tender_List_Details_Stock_Inventory" Association="Self.FK_Tender_List_Details_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tender_List_Details_Tender_List" Association="Self.FK_Tender_List_Details_Tender_List">
+            <End Role="Tender_List" EntitySet="Tender_List" />
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tender_List_Supplier" Association="Self.FK_Tender_List_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Tender_List" EntitySet="Tender_List" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SSISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adjustment_Details">
+          <Key>
+            <PropertyRef Name="voucher_detail_id" />
+          </Key>
+          <Property Name="voucher_detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity_adjusted" Type="Int32" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="voucher_id" Type="Int32" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Inventory_Adjustment" Relationship="Self.FK_Adjustment_Details_Inventory_Adjustment" FromRole="Adjustment_Details" ToRole="Inventory_Adjustment" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Adjustment_Details_Stock_Inventory" FromRole="Adjustment_Details" ToRole="Stock_Inventory" />
+        </EntityType>
+        <EntityType Name="Alert">
+          <Key>
+            <PropertyRef Name="alert_id" />
+          </Key>
+          <Property Name="alert_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="handled" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Alerts_Stock_Inventory" FromRole="Alerts" ToRole="Stock_Inventory" />
+        </EntityType>
+        <EntityType Name="Approval_Duties">
+          <Key>
+            <PropertyRef Name="duty_id" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dept_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="duty_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Approval_Duties_Department" FromRole="Approval_Duties" ToRole="Department" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Approval_Duties_Dept_Registry" FromRole="Approval_Duties" ToRole="Dept_Registry" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Stock_Inventory_Category" FromRole="Category" ToRole="Stock_Inventory" />
+        </EntityType>
+        <EntityType Name="Collection_Point">
+          <Key>
+            <PropertyRef Name="collection_pt_id" />
+          </Key>
+          <Property Name="collection_pt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="day_of_week" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Collection_Point_Dept_Registry" FromRole="Collection_Point" ToRole="Dept_Registry" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Collection_Point" FromRole="Collection_Point" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Delivery_Details">
+          <Key>
+            <PropertyRef Name="delivery_details_id" />
+          </Key>
+          <Property Name="delivery_details_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="delivery_id" Type="Int32" Nullable="false" />
+          <Property Name="tender_id" Type="Int32" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Delivery_Orders" Relationship="Self.FK_Delivery_Details_Delivery_Orders" FromRole="Delivery_Details" ToRole="Delivery_Orders" />
+          <NavigationProperty Name="Tender_List_Details" Relationship="Self.FK_Delivery_Details_Tender_List_Details" FromRole="Delivery_Details" ToRole="Tender_List_Details" />
+        </EntityType>
+        <EntityType Name="Delivery_Orders">
+          <Key>
+            <PropertyRef Name="delivery_id" />
+          </Key>
+          <Property Name="delivery_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clerk_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receive_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Delivery_Details" Relationship="Self.FK_Delivery_Details_Delivery_Orders" FromRole="Delivery_Orders" ToRole="Delivery_Details" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Delivery_Orders_Dept_Registry" FromRole="Delivery_Orders" ToRole="Dept_Registry" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Delivery_Orders_Purchase_Order" FromRole="Delivery_Orders" ToRole="Purchase_Order" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="dept_code" />
+          </Key>
+          <Property Name="dept_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rep_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fax_num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="head_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="collection_point" Type="Int32" Nullable="false" />
+          <Property Name="logo_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Approval_Duties" Relationship="Self.FK_Approval_Duties_Department" FromRole="Department" ToRole="Approval_Duties" />
+          <NavigationProperty Name="Collection_Point1" Relationship="Self.FK_Department_Collection_Point" FromRole="Department" ToRole="Collection_Point" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Department" FromRole="Department" ToRole="Requests" />
+        </EntityType>
+        <EntityType Name="Dept_Registry">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="dept_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mobile_no" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Approval_Duties" Relationship="Self.FK_Approval_Duties_Dept_Registry" FromRole="Dept_Registry" ToRole="Approval_Duties" />
+          <NavigationProperty Name="Collection_Point" Relationship="Self.FK_Collection_Point_Dept_Registry" FromRole="Dept_Registry" ToRole="Collection_Point" />
+          <NavigationProperty Name="Delivery_Orders" Relationship="Self.FK_Delivery_Orders_Dept_Registry" FromRole="Dept_Registry" ToRole="Delivery_Orders" />
+          <NavigationProperty Name="Favourites" Relationship="Self.FK_Favourites_Dept_Registry" FromRole="Dept_Registry" ToRole="Favourites" />
+          <NavigationProperty Name="Monthly_Check_Records" Relationship="Self.FK_Monthly_Check_Records_Dept_Registry" FromRole="Dept_Registry" ToRole="Monthly_Check_Records" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Dept_Registry" FromRole="Dept_Registry" ToRole="Purchase_Order" />
+          <NavigationProperty Name="Request_Event" Relationship="Self.FK_Request_Event_Dept_Registry" FromRole="Dept_Registry" ToRole="Request_Event" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Dept_Registry" FromRole="Dept_Registry" ToRole="Requests" />
+        </EntityType>
+        <EntityType Name="Favourite">
+          <Key>
+            <PropertyRef Name="favourite_id" />
+          </Key>
+          <Property Name="favourite_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="item_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Favourites_Dept_Registry" FromRole="Favourites" ToRole="Dept_Registry" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Favourites_Stock_Inventory" FromRole="Favourites" ToRole="Stock_Inventory" />
+        </EntityType>
+        <EntityType Name="Inventory_Adjustment">
+          <Key>
+            <PropertyRef Name="voucher_id" />
+          </Key>
+          <Property Name="voucher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clerk_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Adjustment_Details" Relationship="Self.FK_Adjustment_Details_Inventory_Adjustment" FromRole="Inventory_Adjustment" ToRole="Adjustment_Details" />
+        </EntityType>
+        <EntityType Name="Monthly_Check_Records">
+          <Key>
+            <PropertyRef Name="check_id" />
+          </Key>
+          <Property Name="check_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_checked" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="clerk_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="discrepancy" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Monthly_Check_Records_Dept_Registry" FromRole="Monthly_Check_Records" ToRole="Dept_Registry" />
+        </EntityType>
+        <EntityType Name="Purchase_Order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clerk_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="order_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="delivery_by" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deliver_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="supplier_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Delivery_Orders" Relationship="Self.FK_Delivery_Orders_Purchase_Order" FromRole="Purchase_Order" ToRole="Delivery_Orders" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Purchase_Order_Dept_Registry" FromRole="Purchase_Order" ToRole="Dept_Registry" />
+          <NavigationProperty Name="Purchase_Order_Details" Relationship="Self.FK_Purchase_Order_Details_Purchase_Order" FromRole="Purchase_Order" ToRole="Purchase_Order_Details" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchase_Order_Supplier" FromRole="Purchase_Order" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Purchase_Order_Details">
+          <Key>
+            <PropertyRef Name="order_details_id" />
+          </Key>
+          <Property Name="order_details_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tender_id" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cancelled" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Details_Purchase_Order" FromRole="Purchase_Order_Details" ToRole="Purchase_Order" />
+          <NavigationProperty Name="Tender_List_Details" Relationship="Self.FK_Purchase_Order_Details_Tender_List_Details" FromRole="Purchase_Order_Details" ToRole="Tender_List_Details" />
+        </EntityType>
+        <EntityType Name="Request_Details">
+          <Key>
+            <PropertyRef Name="request_detail_id" />
+          </Key>
+          <Property Name="request_detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="request_id" Type="Int32" Nullable="false" />
+          <Property Name="item_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="orig_quantity" Type="Int32" />
+          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Details_Requests" FromRole="Request_Details" ToRole="Requests" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Request_Details_Stock_Inventory" FromRole="Request_Details" ToRole="Stock_Inventory" />
+          <NavigationProperty Name="Request_Event" Relationship="Self.FK_Request_Event_Request_Details" FromRole="Request_Details" ToRole="Request_Event" />
+        </EntityType>
+        <EntityType Name="Request_Event">
+          <Key>
+            <PropertyRef Name="request_event_id" />
+          </Key>
+          <Property Name="request_event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="request_detail_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="allocated" Type="Int32" />
+          <Property Name="not_allocated" Type="Int32" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Request_Event_Dept_Registry" FromRole="Request_Event" ToRole="Dept_Registry" />
+          <NavigationProperty Name="Request_Details" Relationship="Self.FK_Request_Event_Request_Details" FromRole="Request_Event" ToRole="Request_Details" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="request_id" />
+          </Key>
+          <Property Name="request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dept_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rejected" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="rejected_reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="date_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Requests_Department" FromRole="Requests" ToRole="Department" />
+          <NavigationProperty Name="Dept_Registry" Relationship="Self.FK_Requests_Dept_Registry" FromRole="Requests" ToRole="Dept_Registry" />
+          <NavigationProperty Name="Request_Details" Relationship="Self.FK_Request_Details_Requests" FromRole="Requests" ToRole="Request_Details" />
+        </EntityType>
+        <EntityType Name="Stock_Inventory">
+          <Key>
+            <PropertyRef Name="item_code" />
+          </Key>
+          <Property Name="item_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="current_qty" Type="Int32" Nullable="false" />
+          <Property Name="reorder_qty" Type="Int32" Nullable="false" />
+          <Property Name="reorder_level" Type="Int32" Nullable="false" />
+          <Property Name="supplier_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="unit_of_measure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="item_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="cat_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adjustment_Details" Relationship="Self.FK_Adjustment_Details_Stock_Inventory" FromRole="Stock_Inventory" ToRole="Adjustment_Details" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK_Alerts_Stock_Inventory" FromRole="Stock_Inventory" ToRole="Alerts" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Stock_Inventory_Category" FromRole="Stock_Inventory" ToRole="Category" />
+          <NavigationProperty Name="Favourites" Relationship="Self.FK_Favourites_Stock_Inventory" FromRole="Stock_Inventory" ToRole="Favourites" />
+          <NavigationProperty Name="Request_Details" Relationship="Self.FK_Request_Details_Stock_Inventory" FromRole="Stock_Inventory" ToRole="Request_Details" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Stock_Inventory_Supplier" FromRole="Stock_Inventory" ToRole="Supplier" />
+          <NavigationProperty Name="Tender_List_Details" Relationship="Self.FK_Tender_List_Details_Stock_Inventory" FromRole="Stock_Inventory" ToRole="Tender_List_Details" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="supplier_id" />
+          </Key>
+          <Property Name="supplier_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fax_num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gst_reg_num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="logo_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Supplier" FromRole="Supplier" ToRole="Purchase_Order" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Stock_Inventory_Supplier" FromRole="Supplier" ToRole="Stock_Inventory" />
+          <NavigationProperty Name="Tender_List" Relationship="Self.FK_Tender_List_Supplier" FromRole="Supplier" ToRole="Tender_List" />
+        </EntityType>
+        <EntityType Name="Tender_List">
+          <Key>
+            <PropertyRef Name="tender_year_id" />
+          </Key>
+          <Property Name="tender_year_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="supplier_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tender_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Tender_List_Supplier" FromRole="Tender_List" ToRole="Supplier" />
+          <NavigationProperty Name="Tender_List_Details" Relationship="Self.FK_Tender_List_Details_Tender_List" FromRole="Tender_List" ToRole="Tender_List_Details" />
+        </EntityType>
+        <EntityType Name="Tender_List_Details">
+          <Key>
+            <PropertyRef Name="tender_id" />
+          </Key>
+          <Property Name="tender_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="rank" Type="Int32" Nullable="false" />
+          <Property Name="tender_year_id" Type="Int32" Nullable="false" />
+          <Property Name="item_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Delivery_Details" Relationship="Self.FK_Delivery_Details_Tender_List_Details" FromRole="Tender_List_Details" ToRole="Delivery_Details" />
+          <NavigationProperty Name="Purchase_Order_Details" Relationship="Self.FK_Purchase_Order_Details_Tender_List_Details" FromRole="Tender_List_Details" ToRole="Purchase_Order_Details" />
+          <NavigationProperty Name="Stock_Inventory" Relationship="Self.FK_Tender_List_Details_Stock_Inventory" FromRole="Tender_List_Details" ToRole="Stock_Inventory" />
+          <NavigationProperty Name="Tender_List" Relationship="Self.FK_Tender_List_Details_Tender_List" FromRole="Tender_List_Details" ToRole="Tender_List" />
+        </EntityType>
+        <Association Name="FK_Adjustment_Details_Inventory_Adjustment">
+          <End Role="Inventory_Adjustment" Type="Self.Inventory_Adjustment" Multiplicity="1" />
+          <End Role="Adjustment_Details" Type="Self.Adjustment_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory_Adjustment">
+              <PropertyRef Name="voucher_id" />
+            </Principal>
+            <Dependent Role="Adjustment_Details">
+              <PropertyRef Name="voucher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adjustment_Details_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Adjustment_Details" Type="Self.Adjustment_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Adjustment_Details">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alerts_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Alerts" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Alerts">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Approval_Duties_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Approval_Duties" Type="Self.Approval_Duties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="dept_code" />
+            </Principal>
+            <Dependent Role="Approval_Duties">
+              <PropertyRef Name="dept_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Approval_Duties_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Approval_Duties" Type="Self.Approval_Duties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Approval_Duties">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Inventory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="Stock_Inventory">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collection_Point_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Collection_Point" Type="Self.Collection_Point" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Collection_Point">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Collection_Point">
+          <End Role="Collection_Point" Type="Self.Collection_Point" Multiplicity="1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collection_Point">
+              <PropertyRef Name="collection_pt_id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="collection_point" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Details_Delivery_Orders">
+          <End Role="Delivery_Orders" Type="Self.Delivery_Orders" Multiplicity="1" />
+          <End Role="Delivery_Details" Type="Self.Delivery_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivery_Orders">
+              <PropertyRef Name="delivery_id" />
+            </Principal>
+            <Dependent Role="Delivery_Details">
+              <PropertyRef Name="delivery_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Details_Tender_List_Details">
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="1" />
+          <End Role="Delivery_Details" Type="Self.Delivery_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tender_List_Details">
+              <PropertyRef Name="tender_id" />
+            </Principal>
+            <Dependent Role="Delivery_Details">
+              <PropertyRef Name="tender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Orders_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Delivery_Orders" Type="Self.Delivery_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Delivery_Orders">
+              <PropertyRef Name="clerk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_Orders_Purchase_Order">
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+          <End Role="Delivery_Orders" Type="Self.Delivery_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase_Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="Delivery_Orders">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="dept_code" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="dept_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favourites_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Favourites" Type="Self.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Favourites">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Monthly_Check_Records_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Monthly_Check_Records" Type="Self.Monthly_Check_Records" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Monthly_Check_Records">
+              <PropertyRef Name="clerk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="clerk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Event_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Request_Event" Type="Self.Request_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Request_Event">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Dept_Registry">
+          <End Role="Dept_Registry" Type="Self.Dept_Registry" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept_Registry">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favourites_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Favourites" Type="Self.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Favourites">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Details_Purchase_Order">
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+          <End Role="Purchase_Order_Details" Type="Self.Purchase_Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase_Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="Purchase_Order_Details">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Details_Tender_List_Details">
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="1" />
+          <End Role="Purchase_Order_Details" Type="Self.Purchase_Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tender_List_Details">
+              <PropertyRef Name="tender_id" />
+            </Principal>
+            <Dependent Role="Purchase_Order_Details">
+              <PropertyRef Name="tender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Details_Requests">
+          <End Role="Requests" Type="Self.Request" Multiplicity="1" />
+          <End Role="Request_Details" Type="Self.Request_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requests">
+              <PropertyRef Name="request_id" />
+            </Principal>
+            <Dependent Role="Request_Details">
+              <PropertyRef Name="request_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Details_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Request_Details" Type="Self.Request_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Request_Details">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Event_Request_Details">
+          <End Role="Request_Details" Type="Self.Request_Details" Multiplicity="1" />
+          <End Role="Request_Event" Type="Self.Request_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request_Details">
+              <PropertyRef Name="request_detail_id" />
+            </Principal>
+            <Dependent Role="Request_Event">
+              <PropertyRef Name="request_detail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Inventory_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="Stock_Inventory">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tender_List_Details_Stock_Inventory">
+          <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="1" />
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Inventory">
+              <PropertyRef Name="item_code" />
+            </Principal>
+            <Dependent Role="Tender_List_Details">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tender_List_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Tender_List" Type="Self.Tender_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="Tender_List">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tender_List_Details_Tender_List">
+          <End Role="Tender_List" Type="Self.Tender_List" Multiplicity="1" />
+          <End Role="Tender_List_Details" Type="Self.Tender_List_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tender_List">
+              <PropertyRef Name="tender_year_id" />
+            </Principal>
+            <Dependent Role="Tender_List_Details">
+              <PropertyRef Name="tender_year_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SSISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adjustment_Details" EntityType="Self.Adjustment_Details" />
+          <EntitySet Name="Alerts" EntityType="Self.Alert" />
+          <EntitySet Name="Approval_Duties" EntityType="Self.Approval_Duties" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Collection_Point" EntityType="Self.Collection_Point" />
+          <EntitySet Name="Delivery_Details" EntityType="Self.Delivery_Details" />
+          <EntitySet Name="Delivery_Orders" EntityType="Self.Delivery_Orders" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Dept_Registry" EntityType="Self.Dept_Registry" />
+          <EntitySet Name="Favourites" EntityType="Self.Favourite" />
+          <EntitySet Name="Inventory_Adjustment" EntityType="Self.Inventory_Adjustment" />
+          <EntitySet Name="Monthly_Check_Records" EntityType="Self.Monthly_Check_Records" />
+          <EntitySet Name="Purchase_Order" EntityType="Self.Purchase_Order" />
+          <EntitySet Name="Purchase_Order_Details" EntityType="Self.Purchase_Order_Details" />
+          <EntitySet Name="Request_Details" EntityType="Self.Request_Details" />
+          <EntitySet Name="Request_Event" EntityType="Self.Request_Event" />
+          <EntitySet Name="Requests" EntityType="Self.Request" />
+          <EntitySet Name="Stock_Inventory" EntityType="Self.Stock_Inventory" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="Tender_List" EntityType="Self.Tender_List" />
+          <EntitySet Name="Tender_List_Details" EntityType="Self.Tender_List_Details" />
+          <AssociationSet Name="FK_Adjustment_Details_Inventory_Adjustment" Association="Self.FK_Adjustment_Details_Inventory_Adjustment">
+            <End Role="Inventory_Adjustment" EntitySet="Inventory_Adjustment" />
+            <End Role="Adjustment_Details" EntitySet="Adjustment_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adjustment_Details_Stock_Inventory" Association="Self.FK_Adjustment_Details_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Adjustment_Details" EntitySet="Adjustment_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alerts_Stock_Inventory" Association="Self.FK_Alerts_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Alerts" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Approval_Duties_Department" Association="Self.FK_Approval_Duties_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Approval_Duties" EntitySet="Approval_Duties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Approval_Duties_Dept_Registry" Association="Self.FK_Approval_Duties_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Approval_Duties" EntitySet="Approval_Duties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Inventory_Category" Association="Self.FK_Stock_Inventory_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collection_Point_Dept_Registry" Association="Self.FK_Collection_Point_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Collection_Point" EntitySet="Collection_Point" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Collection_Point" Association="Self.FK_Department_Collection_Point">
+            <End Role="Collection_Point" EntitySet="Collection_Point" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Details_Delivery_Orders" Association="Self.FK_Delivery_Details_Delivery_Orders">
+            <End Role="Delivery_Orders" EntitySet="Delivery_Orders" />
+            <End Role="Delivery_Details" EntitySet="Delivery_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Details_Tender_List_Details" Association="Self.FK_Delivery_Details_Tender_List_Details">
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+            <End Role="Delivery_Details" EntitySet="Delivery_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Orders_Dept_Registry" Association="Self.FK_Delivery_Orders_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Delivery_Orders" EntitySet="Delivery_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_Orders_Purchase_Order" Association="Self.FK_Delivery_Orders_Purchase_Order">
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+            <End Role="Delivery_Orders" EntitySet="Delivery_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Department" Association="Self.FK_Requests_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favourites_Dept_Registry" Association="Self.FK_Favourites_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Monthly_Check_Records_Dept_Registry" Association="Self.FK_Monthly_Check_Records_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Monthly_Check_Records" EntitySet="Monthly_Check_Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Dept_Registry" Association="Self.FK_Purchase_Order_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Event_Dept_Registry" Association="Self.FK_Request_Event_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Request_Event" EntitySet="Request_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Dept_Registry" Association="Self.FK_Requests_Dept_Registry">
+            <End Role="Dept_Registry" EntitySet="Dept_Registry" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favourites_Stock_Inventory" Association="Self.FK_Favourites_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Details_Purchase_Order" Association="Self.FK_Purchase_Order_Details_Purchase_Order">
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+            <End Role="Purchase_Order_Details" EntitySet="Purchase_Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Supplier" Association="Self.FK_Purchase_Order_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Details_Tender_List_Details" Association="Self.FK_Purchase_Order_Details_Tender_List_Details">
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+            <End Role="Purchase_Order_Details" EntitySet="Purchase_Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Details_Requests" Association="Self.FK_Request_Details_Requests">
+            <End Role="Requests" EntitySet="Requests" />
+            <End Role="Request_Details" EntitySet="Request_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Details_Stock_Inventory" Association="Self.FK_Request_Details_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Request_Details" EntitySet="Request_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Event_Request_Details" Association="Self.FK_Request_Event_Request_Details">
+            <End Role="Request_Details" EntitySet="Request_Details" />
+            <End Role="Request_Event" EntitySet="Request_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Inventory_Supplier" Association="Self.FK_Stock_Inventory_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tender_List_Details_Stock_Inventory" Association="Self.FK_Tender_List_Details_Stock_Inventory">
+            <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tender_List_Supplier" Association="Self.FK_Tender_List_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Tender_List" EntitySet="Tender_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tender_List_Details_Tender_List" Association="Self.FK_Tender_List_Details_Tender_List">
+            <End Role="Tender_List" EntitySet="Tender_List" />
+            <End Role="Tender_List_Details" EntitySet="Tender_List_Details" />
+          </AssociationSet>
+          <EntitySet Name="Crystal_Views" EntityType="SSISModel.Crystal_Views" />
+        </EntityContainer>
+        <EntityType Name="Crystal_Views">
+          <Key>
+            <PropertyRef Name="quantity" />
+            <PropertyRef Name="current_status" />
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="item_description" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="date_time" />
+            <PropertyRef Name="cat_name" />
+          </Key>
+          <Property Name="orig_quantity" Type="Int32" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="current_status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="item_code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="item_description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cat_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SSISModelStoreContainer" CdmEntityContainer="SSISEntities">
+          <EntitySetMapping Name="Adjustment_Details">
+            <EntityTypeMapping TypeName="SSISModel.Adjustment_Details">
+              <MappingFragment StoreEntitySet="Adjustment_Details">
+                <ScalarProperty Name="voucher_detail_id" ColumnName="voucher_detail_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="quantity_adjusted" ColumnName="quantity_adjusted" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="voucher_id" ColumnName="voucher_id" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alerts">
+            <EntityTypeMapping TypeName="SSISModel.Alert">
+              <MappingFragment StoreEntitySet="Alerts">
+                <ScalarProperty Name="alert_id" ColumnName="alert_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="handled" ColumnName="handled" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Approval_Duties">
+            <EntityTypeMapping TypeName="SSISModel.Approval_Duties">
+              <MappingFragment StoreEntitySet="Approval_Duties">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="dept_code" ColumnName="dept_code" />
+                <ScalarProperty Name="duty_id" ColumnName="duty_id" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="SSISModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collection_Point">
+            <EntityTypeMapping TypeName="SSISModel.Collection_Point">
+              <MappingFragment StoreEntitySet="Collection_Point">
+                <ScalarProperty Name="collection_pt_id" ColumnName="collection_pt_id" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="day_of_week" ColumnName="day_of_week" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delivery_Details">
+            <EntityTypeMapping TypeName="SSISModel.Delivery_Details">
+              <MappingFragment StoreEntitySet="Delivery_Details">
+                <ScalarProperty Name="delivery_details_id" ColumnName="delivery_details_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="delivery_id" ColumnName="delivery_id" />
+                <ScalarProperty Name="tender_id" ColumnName="tender_id" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delivery_Orders">
+            <EntityTypeMapping TypeName="SSISModel.Delivery_Orders">
+              <MappingFragment StoreEntitySet="Delivery_Orders">
+                <ScalarProperty Name="delivery_id" ColumnName="delivery_id" />
+                <ScalarProperty Name="clerk_user" ColumnName="clerk_user" />
+                <ScalarProperty Name="receive_date" ColumnName="receive_date" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="SSISModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="dept_code" ColumnName="dept_code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="rep_user" ColumnName="rep_user" />
+                <ScalarProperty Name="contact_user" ColumnName="contact_user" />
+                <ScalarProperty Name="contact_num" ColumnName="contact_num" />
+                <ScalarProperty Name="fax_num" ColumnName="fax_num" />
+                <ScalarProperty Name="head_user" ColumnName="head_user" />
+                <ScalarProperty Name="collection_point" ColumnName="collection_point" />
+                <ScalarProperty Name="logo_path" ColumnName="logo_path" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dept_Registry">
+            <EntityTypeMapping TypeName="SSISModel.Dept_Registry">
+              <MappingFragment StoreEntitySet="Dept_Registry">
+                <ScalarProperty Name="dept_code" ColumnName="dept_code" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favourites">
+            <EntityTypeMapping TypeName="SSISModel.Favourite">
+              <MappingFragment StoreEntitySet="Favourites">
+                <ScalarProperty Name="favourite_id" ColumnName="favourite_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Adjustment">
+            <EntityTypeMapping TypeName="SSISModel.Inventory_Adjustment">
+              <MappingFragment StoreEntitySet="Inventory_Adjustment">
+                <ScalarProperty Name="voucher_id" ColumnName="voucher_id" />
+                <ScalarProperty Name="clerk_user" ColumnName="clerk_user" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="status_date" ColumnName="status_date" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monthly_Check_Records">
+            <EntityTypeMapping TypeName="SSISModel.Monthly_Check_Records">
+              <MappingFragment StoreEntitySet="Monthly_Check_Records">
+                <ScalarProperty Name="check_id" ColumnName="check_id" />
+                <ScalarProperty Name="date_checked" ColumnName="date_checked" />
+                <ScalarProperty Name="clerk_user" ColumnName="clerk_user" />
+                <ScalarProperty Name="discrepancy" ColumnName="discrepancy" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Order">
+            <EntityTypeMapping TypeName="SSISModel.Purchase_Order">
+              <MappingFragment StoreEntitySet="Purchase_Order">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="clerk_user" ColumnName="clerk_user" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="delivery_by" ColumnName="delivery_by" />
+                <ScalarProperty Name="deliver_address" ColumnName="deliver_address" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Order_Details">
+            <EntityTypeMapping TypeName="SSISModel.Purchase_Order_Details">
+              <MappingFragment StoreEntitySet="Purchase_Order_Details">
+                <ScalarProperty Name="order_details_id" ColumnName="order_details_id" />
+                <ScalarProperty Name="tender_id" ColumnName="tender_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="cancelled" ColumnName="cancelled" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Request_Details">
+            <EntityTypeMapping TypeName="SSISModel.Request_Details">
+              <MappingFragment StoreEntitySet="Request_Details">
+                <ScalarProperty Name="request_detail_id" ColumnName="request_detail_id" />
+                <ScalarProperty Name="request_id" ColumnName="request_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="orig_quantity" ColumnName="orig_quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Request_Event">
+            <EntityTypeMapping TypeName="SSISModel.Request_Event">
+              <MappingFragment StoreEntitySet="Request_Event">
+                <ScalarProperty Name="request_event_id" ColumnName="request_event_id" />
+                <ScalarProperty Name="request_detail_id" ColumnName="request_detail_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="allocated" ColumnName="allocated" />
+                <ScalarProperty Name="not_allocated" ColumnName="not_allocated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="SSISModel.Request">
+              <MappingFragment StoreEntitySet="Requests">
+                <ScalarProperty Name="request_id" ColumnName="request_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="dept_code" ColumnName="dept_code" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="current_status" ColumnName="current_status" />
+                <ScalarProperty Name="rejected" ColumnName="rejected" />
+                <ScalarProperty Name="rejected_reason" ColumnName="rejected_reason" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_Inventory">
+            <EntityTypeMapping TypeName="SSISModel.Stock_Inventory">
+              <MappingFragment StoreEntitySet="Stock_Inventory">
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="current_qty" ColumnName="current_qty" />
+                <ScalarProperty Name="reorder_qty" ColumnName="reorder_qty" />
+                <ScalarProperty Name="reorder_level" ColumnName="reorder_level" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="unit_of_measure" ColumnName="unit_of_measure" />
+                <ScalarProperty Name="item_description" ColumnName="item_description" />
+                <ScalarProperty Name="image_path" ColumnName="image_path" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="SSISModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact_name" ColumnName="contact_name" />
+                <ScalarProperty Name="contact_num" ColumnName="contact_num" />
+                <ScalarProperty Name="fax_num" ColumnName="fax_num" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gst_reg_num" ColumnName="gst_reg_num" />
+                <ScalarProperty Name="logo_path" ColumnName="logo_path" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tender_List">
+            <EntityTypeMapping TypeName="SSISModel.Tender_List">
+              <MappingFragment StoreEntitySet="Tender_List">
+                <ScalarProperty Name="tender_year_id" ColumnName="tender_year_id" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="tender_date" ColumnName="tender_date" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tender_List_Details">
+            <EntityTypeMapping TypeName="SSISModel.Tender_List_Details">
+              <MappingFragment StoreEntitySet="Tender_List_Details">
+                <ScalarProperty Name="tender_id" ColumnName="tender_id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="tender_year_id" ColumnName="tender_year_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Crystal_Views">
+            <EntityTypeMapping TypeName="SSISModel.Crystal_Views">
+              <MappingFragment StoreEntitySet="Crystal_Views">
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="item_description" ColumnName="item_description" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="current_status" ColumnName="current_status" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="orig_quantity" ColumnName="orig_quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

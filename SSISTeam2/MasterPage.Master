@@ -1,0 +1,463 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="SSISTeam2.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <%--<title>SSIS</title>--%>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+   
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <!-- jQuery -->
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+
+    <style type="text/css">
+        body {
+            padding-top: 85px;
+            /*padding-bottom: 100px;*/
+            background-color: white;
+        width:100%;
+      
+        }
+
+       
+
+        .footer{
+            /*border-top-style:groove;*/
+            position: fixed;
+            bottom: 0;
+            padding-bottom:0;
+            /*padding-left:10px;
+            background-color:rgb(237, 242, 249);*/
+            width: 100%;
+            text-align:center;
+            /*padding-bottom:2px;
+            height:2px;*/
+        } 
+
+        .carousel_height {
+            height: 500px;
+        }
+
+        .carousel_color {
+            background-color: #caa052;
+        }
+            
+        .right {
+            float: right;
+        }
+
+        a {
+            /*color: white;*/
+        }
+        #content
+        {width:100%;
+         
+        }
+
+        /*.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 0px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+                }*/
+        .grey-text {
+            color: grey !important;
+        }
+
+        @media screen and (max-width: 991px) {
+            .columns {
+                height: 300px;
+                overflow-y: scroll;
+            }
+
+            .dropdown-menu {
+                background-color: white !important;
+            }
+
+        }
+
+        @media screen and (min-width: 992px) {
+            .columns {
+                -moz-column-count: 2; /* Firefox */
+                -webkit-column-count: 2; /* Safari and Chrome */
+                column-count: 2;
+                width:500px;
+                /*height: 300px;*/
+            }
+            .dropdown-menu {
+                background-color: white !important;
+                white-space: normal;
+            }
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+
+
+    <form id="form1" runat="server">
+
+        <nav class="navbar navbar-fixed-top btn-primary">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                       
+                    </button>
+                    <a class="navbar-brand" style="color: #ECEFF4; font-size:28px; font-family:Papyrus"><b>Logic University Store</b></a>
+                </div>
+
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <% if (!Page.User.Identity.IsAuthenticated)
+                        { %>
+
+                    <div class="navbar-form navbar-right">
+<%--                        <asp:Button ID="Button1" runat="server" Text="Login" CausesValidation="false" CssClass="form-control btn-default" OnClick="Login" />--%>
+<%--                        <asp:Button ID="Button2" runat="server" Text="Register" CausesValidation="false" CssClass="form-control btn-default" OnClick="Register" />--%>
+
+
+                    </div>
+
+
+
+                    <% }
+                        else
+                        { %>
+
+                    <%--<p class="navbar-text navbar-right">Signed in as <%= Page.User.Identity.Name %>  </p>--%>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:Label Font-Italic="true" runat="server" CssClass="navbar-text" ID="lblFullName"></asp:Label>
+                            <div class="navbar-text">Signed in as <%= Page.User.Identity.Name %></div>
+                            
+                        </li>
+                       <%-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color:white">Messages</span> <span class="badge btn-default">4</span></a></li>--%>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <%--<span class="glyphicon glyphicon-user" style="color:white" aria-hidden="true"></span>--%>
+                                <span style="color:white">MENU</span>
+                                <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu columns">
+
+                               
+
+                                <% if (userModel.isEmployee())
+                                    { %>
+
+                                     <li>
+                                         <asp:LinkButton ID="btnEmpDash" CausesValidation="false" OnClick="btnEmpDash_Click" runat="server" style="color: #000000; text-decoration: none;">Your Dashboard</asp:LinkButton>
+                                    </li>
+                                
+                                    <%--<li class="divider"></li>--%>
+                                <br />
+                                    <li class="dropdown-header">Employee actions</li>
+
+                                    <li>
+                                        <asp:LinkButton ID="btnNewRequest_emp" CausesValidation="false" OnClick="btnNewRequest_Click" runat="server" style="color: #000000; text-decoration: none;">New Stationery Request</asp:LinkButton>
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="btnEmpRequestHistory_emp" CausesValidation="false" OnClick="btnEmpRequestHistory_Click" runat="server" style="color: #000000; text-decoration: none;">View Department Requests</asp:LinkButton>
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="btnEmpViewCatalogue_emp" CausesValidation="false" OnClick="btnEmpViewCatalogue_Click" runat="server" style="color: #000000; text-decoration: none;">View Stationery Catalogue</asp:LinkButton>
+                                    </li>
+                                     </li>
+
+                                     <% if (userModel.isDepartmentRep())
+                                    { %>
+                                <li class="dropdown-header">Department Representative actions</li>
+                                <li>
+                                    <asp:LinkButton ID="linkBtnDepRepView" CausesValidation="false" OnClick="btnDepRepViewDisbursements_Click" runat="server" style="color: #000000; text-decoration: none;">View Recent Disbursements</asp:LinkButton>
+                                </li>
+                        <li>
+                                        <asp:LinkButton ID="btnChnageCollectp" OnClick="btnChnageCollectp_Click" runat="server" style="color: #000000; text-decoration: none;">Change Collection Point</asp:LinkButton>
+                                    </li>
+                                <% } %>
+
+                                <% }
+
+
+                                    if (userModel.isStoreClerk() || userModel.isStoreSupervisor())
+                                    { %>
+
+                                <li>
+                                    <asp:LinkButton ID="btnClerkDash" CausesValidation="false" OnClick="btnClerkDash_Click" runat="server" style="color: #000000; text-decoration: none;">Your Dashboard</asp:LinkButton>
+                                </li>
+
+                                <%--<li class="divider"></li>--%>
+                                <br />
+                                <li class="dropdown-header">Employee actions</li>
+
+                                <li>
+                                    <asp:LinkButton ID="btnNewRequest" CausesValidation="false" OnClick="btnNewRequest_Click" runat="server" style="color: #000000; text-decoration: none;">New Stationery Request</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnEmpRequestHistory" CausesValidation="false" OnClick="btnEmpRequestHistory_Click" runat="server" style="color: #000000; text-decoration: none;">View Department Requests</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnEmpViewCatalogue" CausesValidation="false" OnClick="btnEmpViewCatalogue_Click" runat="server" style="color: #000000; text-decoration: none;">View Stationery Catalogue</asp:LinkButton>
+                                </li>
+                                
+                                <%--<li class="divider"></li>--%>
+                                <br />
+                                <li class="dropdown-header">Store actions</li>
+                                <li>
+                                    <asp:LinkButton ID="ViewDeptList" CausesValidation="false" OnClick="ViewDeptList_Click" runat="server" style="color: #000000; text-decoration: none;">View Department List</asp:LinkButton>
+                                </li>
+                        <li>
+                                    <asp:LinkButton ID="ViewSuppList" CausesValidation="false" OnClick="btnViewSuppList_Click" runat="server" style="color: #000000; text-decoration: none;">View Supplier List</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnGenerateRetrieval" CausesValidation="false" OnClick="btnGenerateRetrieval_Click" runat="server" style="color: #000000; text-decoration: none;">Generate Retrieval Form</asp:LinkButton>
+                                </li>
+                        <li>
+                                    <asp:LinkButton ID="btnConfirmRetrieval" CausesValidation="false" OnClick="btnConfirmRetrieval_Click" runat="server" style="color: #000000; text-decoration: none;">Confirm Retrieval</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnGenerateDisbursement" CausesValidation="false" OnClick="btnGenerateDisbursement_Click" runat="server" style="color: #000000; text-decoration: none;">Generate Disbursement Form</asp:LinkButton>
+                                </li>
+                        <li>
+                                    <asp:LinkButton ID="btnViewDisbursement" CausesValidation="false" OnClick="btnViewDisbursement_Click" runat="server" style="color: #000000; text-decoration: none;">View Generated Disbursements</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnConfirmDisbursement" CausesValidation="false" OnClick="btnConfirmDisbursement_Click" runat="server" style="color: #000000; text-decoration: none;">Confirm Disbursement</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnMonthlyCheck" CausesValidation="false" OnClick="btnMonthlyCheck_Click" runat="server" style="color: #000000; text-decoration: none;">Conduct Stocktake</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnLowStocks_Sup" CausesValidation="false" OnClick="btnLowStocks_Mgr_Click" runat="server" style="color: #000000; text-decoration: none;">Low Stock Ordering</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnMakeOrder_Sup" CausesValidation="false" OnClick="btnMakeOrder_Mgr_Click" runat="server" style="color: #000000; text-decoration: none;">Make Purchase Order</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnStoreCart" CausesValidation="false" OnClick="btnStoreCart_Click" runat="server" style="color: #000000; text-decoration: none;">View Cart</asp:LinkButton>
+                                </li>
+                                
+                                <li>
+                                    <asp:LinkButton ID="btn_ViewPendingOrder" CausesValidation="false" OnClick="btn_ViewPendingOrder_Click" runat="server" style="color: #000000; text-decoration: none;">View Order History</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnViewTenderList" CausesValidation="false" OnClick="btnViewTenderList_Click" runat="server" style="color: #000000; text-decoration: none;">View Tender List</asp:LinkButton>
+                                </li>
+                        <li>
+                                    <asp:LinkButton ID="CategoryListing" CausesValidation="false" OnClick="btnViewCatList_Click" runat="server" style="color: #000000; text-decoration: none;">Maintain Category Listing</asp:LinkButton>
+                                </li>
+                        <li>
+                                    <asp:LinkButton ID="MaintainStoreCatalgoe" CausesValidation="false" OnClick="btnMaintainCatalogue_Click" runat="server" style="color: #000000; text-decoration: none;">Maintain Store Catalogue</asp:LinkButton>
+                                </li>
+
+
+                              
+
+                                <% }
+
+                                    if (userModel.isDeptHeadButNotStoreManager())
+                                    { %>
+
+                                <li>
+                                    <asp:LinkButton ID="btnHeadDashboard" CausesValidation="false" OnClick="btnHeadDashboard_Click" runat="server" style="color: #000000; text-decoration: none;">Your Dashboard</asp:LinkButton>
+                                </li>
+
+                                <%--<li class="divider"></li>--%>
+                                <br />
+                                <li class="dropdown-header">Department Head actions</li>
+
+                                <li>
+                                    <asp:LinkButton ID="btnApproveRequests" CausesValidation="false" OnClick="btnApproveRequests_Click" runat="server" style="color: #000000; text-decoration: none;">Approve Requests</asp:LinkButton>
+                                </li>
+
+                                <% if (! userModel.isDelegateHead()) { %>
+                                <li>
+
+                                    <asp:LinkButton ID="LinkButtonDelegateAuth1" CausesValidation="false" OnClick="DelegateAuth" runat="server" style="color: #000000; text-decoration: none;">Delegate Authority</asp:LinkButton>
+                                </li>
+                                <% } %>
+
+
+                                <li>
+                                    <asp:LinkButton ID="btnEmpViewCatalogue_deptHead" CausesValidation="false" OnClick="btnEmpViewCatalogue_Click" runat="server" style="color: #000000; text-decoration: none;">View Stationery Catalogue</asp:LinkButton>
+                                </li>
+                                 <li>
+                                    <asp:LinkButton ID="LinkButtonn" CausesValidation="false" OnClick="ChangeCPRep" runat="server" style="color: #000000; text-decoration: none;">Change Collection Point & Rep</asp:LinkButton>
+                                </li>
+                        
+                                <% if (userModel.isDepartmentRep()) { %>
+                                <li class="dropdown-header">Department Representative actions</li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton1" CausesValidation="false" OnClick="btnDepRepViewDisbursements_Click" runat="server" style="color: #000000; text-decoration: none;">View Recent Disbursements</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton2" OnClick="btnChnageCollectp_Click" runat="server" style="color: #000000; text-decoration: none;">Change Collection Point</asp:LinkButton>
+                                </li>
+                                <% } %>
+
+                                <% }
+
+                                    if (userModel.isStoreSupervisor())
+                                    { %>
+                                <%--<li class="divider"></li>--%>
+                                <br />
+                                <li class="dropdown-header">Supervisor actions</li>
+                                <li>
+                                    <asp:LinkButton ID="btnViewAllAdjustments" CausesValidation="false" OnClick="btnViewAllAdjustments_Click" runat="server" style="color: #000000; text-decoration: none;">View Inventory Adjustments</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnGenerateReports_Sup" CausesValidation="false" OnClick="btnGenerateReports_Click" runat="server" style="color: #000000; text-decoration: none;">Generate Reports</asp:LinkButton>
+                                </li>
+                                <% }
+
+                                    if (userModel.isStoreManager())
+                                    { %>
+                                <li>
+                                    <asp:LinkButton ID="btnHeadDashboard_Mgr" CausesValidation="false" OnClick="btnHeadDashboard_Click" runat="server" style="color: #000000; text-decoration: none;">Your Dashboard</asp:LinkButton>
+                                </li>
+                                <%--<li class="divider"></li>--%>
+                                <br />
+                                <li class="dropdown-header">Store actions</li>
+                                <li>
+                                    <asp:LinkButton ID="btnLowStocks_Mgr" CausesValidation="false" OnClick="btnLowStocks_Mgr_Click" runat="server" style="color: #000000; text-decoration: none;">Low Stock Orders</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnMakeOrder_Mgr" CausesValidation="false" OnClick="btnMakeOrder_Mgr_Click" runat="server" style="color: #000000; text-decoration: none;">Make Purchase Order</asp:LinkButton>
+                                </li>
+
+                                <% if (! userModel.isDelegateHead()) { %>
+                                <li>
+                                    <asp:LinkButton ID="btnStoreCart_Mgr" CausesValidation="false" OnClick="btnStoreCart_Click" runat="server" style="color: #000000; text-decoration: none;">View Cart</asp:LinkButton>
+                                </li>
+                                <% } %>
+
+                                <li>
+                                    <asp:LinkButton ID="btnManVPO" CausesValidation="false" OnClick="btn_ViewPendingOrder_Click" runat="server" style="color: #000000; text-decoration: none;">View Order History</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnViewAllAdjustments_Mgr" CausesValidation="false" OnClick="btnViewAllAdjustments_Click" runat="server" style="color: #000000; text-decoration: none;">View Inventory Adjustments</asp:LinkButton>
+                                </li>
+                                <%--<li class="divider"></li>--%>
+                                <br />
+                                <br />
+                                <br />
+                                <%--</li>--%>
+                                <li class="dropdown-header">Manager actions</li>
+
+                                <li>
+                                    <asp:LinkButton ID="btnApproveRequests_Mgr" CausesValidation="false" OnClick="btnApproveRequests_Click" runat="server" style="color: #000000; text-decoration: none;">Approve Requests</asp:LinkButton>
+                                </li>
+                                <% if (! userModel.isDelegateHead()) { %>
+                                <li>
+                                    <asp:LinkButton ID="LinkButtonDelegateAuth2" CausesValidation="false" OnClick="DelegateAuth" runat="server" style="color: #000000; text-decoration: none;">Delegate Authority</asp:LinkButton>
+                                </li>
+                                <% } %>
+                                <li>
+                                    <asp:LinkButton ID="btnEmpViewCatalogue_Mgr" CausesValidation="false" OnClick="btnEmpViewCatalogue_Click" runat="server" style="color: #000000; text-decoration: none;">View Stationery Catalogue</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="linkBtnChangeCollectPt2" CausesValidation="false" OnClick="ChangeCPRep" runat="server" style="color: #000000; text-decoration: none;">Change Collection Point & Rep</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnGenerateReports" CausesValidation="false" OnClick="btnGenerateReports_Click" runat="server" style="color: #000000; text-decoration: none;">Generate Reports</asp:LinkButton>
+                                </li>
+                                
+                                
+
+                                <% } %>
+                                
+                                <%--Moved Logout Button to bottom of drop down list--%>
+                                <li class="divider"></li>
+                                <li>
+                                <asp:LinkButton ID="linkBtnLogOut" CausesValidation="false" OnClick="Logout" runat="server" CssClass="danger" style="color: #cc1010; text-decoration: none; font-weight: bold;">Logout</asp:LinkButton>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+
+
+                    <% } %>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+
+
+        <hr />
+
+        <div class="well">
+            
+                &copy; 2017 Logic University Store Project All Rights Reserved.
+           
+        </div>
+      
+    </form>
+
+<%--    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
+
+</body>
+</html>

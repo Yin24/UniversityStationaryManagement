@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1fe9418e270044b8a7f193d96fd87935" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="SSISModel.Adjustment_Details" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Alert" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Approval_Duties" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Category" Width="1.5" PointX="1.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Collection_Point" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Delivery_Details" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Delivery_Orders" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Department" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Dept_Registry" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Favourite" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Inventory_Adjustment" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Monthly_Check_Records" Width="1.5" PointX="3" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Purchase_Order" Width="1.5" PointX="8" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Purchase_Order_Details" Width="1.5" PointX="10.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Request_Details" Width="1.5" PointX="12.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Request_Event" Width="1.5" PointX="15" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Request" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Stock_Inventory" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Supplier" Width="1.5" PointX="1.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Tender_List" Width="1.5" PointX="3.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSISModel.Tender_List_Details" Width="1.5" PointX="6" PointY="28.125" IsExpanded="true" />
+        <AssociationConnector Association="SSISModel.FK_Adjustment_Details_Inventory_Adjustment" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Adjustment_Details_Stock_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Alerts_Stock_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Approval_Duties_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Approval_Duties_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Stock_Inventory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Collection_Point_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Department_Collection_Point" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Delivery_Details_Delivery_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Delivery_Details_Tender_List_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Delivery_Orders_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Delivery_Orders_Purchase_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Requests_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Favourites_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Monthly_Check_Records_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Purchase_Order_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Request_Event_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Requests_Dept_Registry" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Favourites_Stock_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Purchase_Order_Details_Purchase_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Purchase_Order_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Purchase_Order_Details_Tender_List_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Request_Details_Requests" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Request_Details_Stock_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Request_Event_Request_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Stock_Inventory_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Tender_List_Details_Stock_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Tender_List_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="SSISModel.FK_Tender_List_Details_Tender_List" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SSISModel.Crystal_Views" Width="1.5" PointX="10.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

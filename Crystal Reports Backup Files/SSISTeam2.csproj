@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D15A9C5D-ABE1-46B4-98BE-4F941D3993DC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSISTeam2</RootNamespace>
+    <AssemblyName>SSISTeam2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.4.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.4.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.4.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApproveStockAdjustment.aspx" />
+    <Content Include="CreateChartReport.aspx" />
+    <Content Include="MonthlyCheck.aspx" />
+    <Content Include="MonthlyCheckConfirmation.aspx" />
+    <Content Include="notifysuccess.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MasterPage.Master" />
+    <None Include="Properties\PublishProfiles\SSISTeam2.pubxml" />
+    <EntityDeploy Include="SSISModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SSISModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SSISModel.edmx.diagram">
+      <DependentUpon>SSISModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="SSISModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSISModel.edmx</DependentUpon>
+      <LastGenOutput>SSISModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SSISModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSISModel.edmx</DependentUpon>
+      <LastGenOutput>SSISModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ViewReportList.aspx" />
+    <Content Include="ViewStoreCatalogue.aspx" />
+    <Content Include="Views\DepartmentHead\DelegateAuthority.aspx" />
+    <Content Include="Views\DepartmentHead\DepartmentInfo.aspx" />
+    <Content Include="Views\DepartmentHead\ViewAllPending.aspx" />
+    <Content Include="Views\Employee\Form1.aspx" />
+    <Content Include="Views\Employee\Home.aspx" />
+    <Content Include="Views\Employee\ViewCat.aspx" />
+    <Content Include="Views\DepartmentHead\ChangeCollectionnRep.aspx" />
+    <Content Include="Views\DepartmentHead\DelegateAuthority.aspx" />
+    <Content Include="Views\DepartmentHead\DepartmentInfo.aspx" />
+    <Content Include="Views\DepartmentHead\ViewAllPending.aspx" />
+    <Content Include="Views\Reporting\ReportsMain.aspx" />
+    <Content Include="Views\Reporting\RequestVolumeRpt.aspx" />
+    <Content Include="Views\Reporting\TrendAnalysisStaging.aspx" />
+    <Content Include="Views\Reporting\TrendAnalysisRpt.aspx" />
+    <Content Include="Views\Employee\ViewRequestsDetails.aspx" />
+    <Content Include="Views\StoreClerk\AddNewSupplier.aspx" />
+    <Content Include="Views\StoreClerk\MakeNewRequests.aspx" />
+    <Content Include="Views\StoreClerk\EditSupplier.aspx" />
+    <Content Include="Views\Employee\EmpRequestHistory.aspx" />
+    <Content Include="Views\Home\Home.aspx" />
+    <Content Include="Views\StoreClerk\GenerateDisbursementForm.aspx" />
+    <Content Include="Views\StoreClerk\Cart.aspx" />
+    <Content Include="Views\StoreClerk\lowstock.aspx" />
+    <Content Include="Views\StoreClerk\MakeRetrievalForm.aspx" />
+    <Content Include="Views\StoreClerk\PurchaseOrder.aspx" />
+    <Content Include="Views\StoreClerk\RetrieveRequestDemo.aspx" />
+    <Content Include="Views\StoreClerk\StationaryRetrievalForm.aspx" />
+    <Content Include="Views\StoreClerk\ViewDepartmentList.aspx" />
+    <Content Include="Views\StoreClerk\ViewSupplierList.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adjustment_Details.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Alert.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Approval_Duties.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApproveStockAdjustment.aspx.cs">
+      <DependentUpon>ApproveStockAdjustment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApproveStockAdjustment.aspx.designer.cs">
+      <DependentUpon>ApproveStockAdjustment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\EFFacades\FacadeFactory.cs" />
+    <Compile Include="Classes\EFFServices\AllocatedService.cs" />
+    <Compile Include="Classes\EFFServices\DisbursementService.cs" />
+    <Compile Include="Classes\EFFServices\IAllocatedService.cs" />
+    <Compile Include="Classes\EFFServices\IDisbursementService.cs" />
+    <Compile Include="Classes\EFFServices\IRequestMovementService.cs" />
+    <Compile Include="Classes\EFFServices\IRequestService.cs" />
+    <Compile Include="Classes\EFFServices\IRetrievalService.cs" />
+    <Compile Include="Classes\EFFServices\ItemGetter.cs" />
+    <Compile Include="Classes\EFFServices\RequestMovementService.cs" />
+    <Compile Include="Classes\EFFServices\RequestService.cs" />
+    <Compile Include="Classes\EFFServices\RetrievalServiceOld.cs" />
+    <Compile Include="Classes\Models\DisbursementModelCollection.cs" />
+    <Compile Include="Classes\Models\MonthlyCheckModel.cs" />
+    <Compile Include="Classes\Models\RetrievalModelCollection.cs" />
+    <Compile Include="Classes\EFFServices\RetrievalService.cs" />
+    <Compile Include="Classes\Exceptions\DateNotFoundException.cs" />
+    <Compile Include="Classes\Exceptions\IdentifierAlreadySet.cs" />
+    <Compile Include="Classes\Exceptions\ItemNotFoundException.cs" />
+    <Compile Include="Classes\Exceptions\RequestAlreadyApprovedException.cs" />
+    <Compile Include="Classes\Exceptions\RequestDataIntegrityFailureException.cs" />
+    <Compile Include="Classes\Models\AllocatedModel.cs" />
+    <Compile Include="Classes\Models\DisbursementModel.cs" />
+    <Compile Include="Classes\EFFServices\IRecordModelCollection.cs" />
+    <Compile Include="Classes\Models\ItemModel.cs" />
+    <Compile Include="Classes\Models\RecordModel.cs" />
+    <Compile Include="Classes\Models\AllocatedModelCollection.cs" />
+    <Compile Include="Classes\Models\RequestModel.cs" />
+    <Compile Include="Classes\Models\RequestModelCollection.cs" />
+    <Compile Include="Classes\Models\RetrievalModel.cs" />
+    <Compile Include="Classes\Models\StatusEnums.cs" />
+    <Compile Include="Classes\Models\UserModel.cs" />
+    <Compile Include="Collection_Point.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreateChartReport.aspx.cs">
+      <DependentUpon>CreateChartReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateChartReport.aspx.designer.cs">
+      <DependentUpon>CreateChartReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery_Details.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery_Orders.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dept_Registry.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Favourite.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory_Adjustment.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyCheck.aspx.cs">
+      <DependentUpon>MonthlyCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MonthlyCheck.aspx.designer.cs">
+      <DependentUpon>MonthlyCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyCheckConfirmation.aspx.cs">
+      <DependentUpon>MonthlyCheckConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MonthlyCheckConfirmation.aspx.designer.cs">
+      <DependentUpon>MonthlyCheckConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly_Check_Records.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notifysuccess.aspx.cs">
+      <DependentUpon>notifysuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notifysuccess.aspx.designer.cs">
+      <DependentUpon>notifysuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase_Order.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase_Order_Details.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Request.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Request_Details.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Request_Event.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSISModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSISModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSISModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSISModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSISModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Inventory.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tender_List.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tender_List_Details.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmpRequestHistory.aspx.cs">
+      <DependentUpon>EmpRequestHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\EmpRequestHistory.aspx.designer.cs">
+      <DependentUpon>EmpRequestHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\Form1.aspx.cs">
+      <DependentUpon>Form1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\Form1.aspx.designer.cs">
+      <DependentUpon>Form1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\ChangeCollectionnRep.aspx.cs">
+      <DependentUpon>ChangeCollectionnRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\ChangeCollectionnRep.aspx.designer.cs">
+      <DependentUpon>ChangeCollectionnRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\DelegateAuthority.aspx.cs">
+      <DependentUpon>DelegateAuthority.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\DelegateAuthority.aspx.designer.cs">
+      <DependentUpon>DelegateAuthority.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\DepartmentInfo.aspx.cs">
+      <DependentUpon>DepartmentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\DepartmentInfo.aspx.designer.cs">
+      <DependentUpon>DepartmentInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\ViewAllPending.aspx.cs">
+      <DependentUpon>ViewAllPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DepartmentHead\ViewAllPending.aspx.designer.cs">
+      <DependentUpon>ViewAllPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\ViewCat.aspx.cs">
+      <DependentUpon>ViewCat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\ViewCat.aspx.designer.cs">
+      <DependentUpon>ViewCat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\ViewRequestsDetails.aspx.cs">
+      <DependentUpon>ViewRequestsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\ViewRequestsDetails.aspx.designer.cs">
+      <DependentUpon>ViewRequestsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reporting\ReportsMain.aspx.cs">
+      <DependentUpon>ReportsMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\ReportsMain.aspx.designer.cs">
+      <DependentUpon>ReportsMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reporting\Reports\Crystal Testing\TEST Trend_Analysis.cs">
+      <DependentUpon>TEST Trend_Analysis.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Reporting\RequestVolumeRpt.aspx.cs">
+      <DependentUpon>RequestVolumeRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\RequestVolumeRpt.aspx.designer.cs">
+      <DependentUpon>RequestVolumeRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reporting\Reports\Trend_Analysis1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trend_Analysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\TrendAnalysisStaging.aspx.cs">
+      <DependentUpon>TrendAnalysisStaging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\TrendAnalysisStaging.aspx.designer.cs">
+      <DependentUpon>TrendAnalysisStaging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reporting\Reports\Trend_Analysis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trend_Analysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\Reports\Volume_Report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Volume_Report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\TrendAnalysisRpt.aspx.cs">
+      <DependentUpon>TrendAnalysisRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Reporting\TrendAnalysisRpt.aspx.designer.cs">
+      <DependentUpon>TrendAnalysisRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\AddNewSupplier.aspx.cs">
+      <DependentUpon>AddNewSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\AddNewSupplier.aspx.designer.cs">
+      <DependentUpon>AddNewSupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\MakeNewRequests.aspx.cs">
+      <DependentUpon>MakeNewRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\MakeNewRequests.aspx.designer.cs">
+      <DependentUpon>MakeNewRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\EditSupplier.aspx.cs">
+      <DependentUpon>EditSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\EditSupplier.aspx.designer.cs">
+      <DependentUpon>EditSupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\GenerateDisbursementForm.aspx.cs">
+      <DependentUpon>GenerateDisbursementForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\GenerateDisbursementForm.aspx.designer.cs">
+      <DependentUpon>GenerateDisbursementForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\lowstock.aspx.cs">
+      <DependentUpon>lowstock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\lowstock.aspx.designer.cs">
+      <DependentUpon>lowstock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\MakeRetrievalForm.aspx.cs">
+      <DependentUpon>MakeRetrievalForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\MakeRetrievalForm.aspx.designer.cs">
+      <DependentUpon>MakeRetrievalForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\PurchaseOrder.aspx.cs">
+      <DependentUpon>PurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\PurchaseOrder.aspx.designer.cs">
+      <DependentUpon>PurchaseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\RetrieveRequestDemo.aspx.cs">
+      <DependentUpon>RetrieveRequestDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\RetrieveRequestDemo.aspx.designer.cs">
+      <DependentUpon>RetrieveRequestDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\StationaryRetrievalForm.aspx.cs">
+      <DependentUpon>StationaryRetrievalForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\StationaryRetrievalForm.aspx.designer.cs">
+      <DependentUpon>StationaryRetrievalForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\ViewDepartmentList.aspx.cs">
+      <DependentUpon>ViewDepartmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\ViewDepartmentList.aspx.designer.cs">
+      <DependentUpon>ViewDepartmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreClerk\ViewSupplierList.aspx.cs">
+      <DependentUpon>ViewSupplierList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StoreClerk\ViewSupplierList.aspx.designer.cs">
+      <DependentUpon>ViewSupplierList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Volume_Request.cs">
+      <DependentUpon>SSISModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Home\DepartmentHead\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Reporting\Reports\Crystal Testing\TEST Trend_Analysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TEST Trend_Analysis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reporting\Reports\Trend_Analysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Trend_Analysis1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reporting\Reports\Volume_Report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Volume_Report.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65454</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65454/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
